@@ -32,10 +32,10 @@ jobs:
 
       # add ffmpeg for speech feature
       - name: Install ffmpeg
-        - uses: actions/checkout@v3
-        - uses: FedericoCarboni/setup-ffmpeg@v2
+        uses: actions/checkout@v3
+        uses: FedericoCarboni/setup-ffmpeg@v2
           id: setup-ffmpeg
-        - run: ffmpeg -i input.avi output.mkv
+        run: ffmpeg -i input.avi output.mkv
 
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
       - name: Zip artifact for deployment
