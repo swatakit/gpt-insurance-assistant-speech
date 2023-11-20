@@ -26,8 +26,12 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y ffmpeg
-          which ffmpeg
-          ffmpeg -version
+          echo "$(dirname $(which ffmpeg))" >> $GITHUB_PATH
+
+      - name: Check ffmpeg path
+        run: |
+        which ffmpeg
+        ffmpeg -version
 
       - name: Create and start virtual environment
         run: |
