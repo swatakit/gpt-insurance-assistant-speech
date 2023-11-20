@@ -28,10 +28,10 @@ jobs:
           sudo apt-get install -y ffmpeg
           echo "$(dirname $(which ffmpeg))" >> $GITHUB_PATH
 
-      - name: Check ffmpeg path
+      - name: Copy ffmpeg binaries
         run: |
-        which ffmpeg
-        ffmpeg -version
+          cp $(which ffmpeg) .
+          cp $(which ffprobe) .
 
       - name: Create and start virtual environment
         run: |
