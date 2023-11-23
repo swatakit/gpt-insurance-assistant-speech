@@ -20,7 +20,7 @@ streamlit run Welcome.py
 ```
 
 ## App Flow
-![alt text](app_flow.png)
+![alt text](image/app_flow.png)
 
 ## OpenAI Flow
-![alt text](openai_flow.png)
+![alt text](image/openai_flow.png)
