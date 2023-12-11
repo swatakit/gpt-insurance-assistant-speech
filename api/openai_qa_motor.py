@@ -9,7 +9,7 @@ api_key = os.environ["OPENAI_API_KEY"]
 client = OpenAI()
 
 # Connect to the Assistant 
-assistant_id = "asst_hhRIlrTKGOGKth9hrX2cH7sa"
+assistant_id =os.environ["OPENAI_ASSISTANT_ID_MOTOR"]
 assistant = client.beta.assistants.retrieve(assistant_id)
 
 # Create thread for this user and run
