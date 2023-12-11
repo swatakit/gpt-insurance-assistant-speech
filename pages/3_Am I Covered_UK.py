@@ -52,15 +52,15 @@ with st.container():
         )
 
 # Initialize chat history if not already present
-if "messages_qa" not in st.session_state:
-    st.session_state.messages_qa = []
+if "messages_uk" not in st.session_state:
+    st.session_state.messages_uk = []
 
 # Display welcome message
 with st.chat_message("assistant"):
     st.write("Hello, how can I help you today?")
 
 # Display previous chat messages
-for message in st.session_state.messages_qa:
+for message in st.session_state.messages_uk:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
 
@@ -72,7 +72,7 @@ new_input = user_input or prompt
 
 if new_input:
     # Add user message to chat history and display it
-    st.session_state.messages_qa.append({"role": "user", "content": new_input})
+    st.session_state.messages_uk.append({"role": "user", "content": new_input})
     with st.chat_message("user"):
         st.markdown(new_input)
 
@@ -83,7 +83,7 @@ if new_input:
             st.markdown(full_response)
 
             # Add assistant response to chat history
-            st.session_state.messages_qa.append({"role": "assistant", "content": full_response})
+            st.session_state.messages_uk.append({"role": "assistant", "content": full_response})
 
         # Generating speech (if needed)
         with st.spinner("Generating speech..."):
