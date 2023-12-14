@@ -36,7 +36,7 @@ with st.container():
     stick_header()
 
     # Display the title
-    st.title('Policy QA Bot Assistant')
+    st.title('Question and Answer Insurance Assistant')
 
     # set explanation 
     with st.expander("Assistants Role"):
