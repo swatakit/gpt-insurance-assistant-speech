@@ -10,7 +10,7 @@ st.image(image)
 
 st.caption('Powered by :blue[OpenAI] APIs :sunglasses:')
 
-st.write("We have created :blue[Two Unique Insurance Assistants ] which are designed to provide customers with clear and concise information regarding our: \
+st.write("We have created :blue[ AI Insurance Assistants ] which are designed to provide customers with clear and concise information regarding our: \
 \n\n 1. Suite of Insurance Products \n\n 2. Assist Potential New Customers in determining which Life Insurance Product is best for them.")
 
 

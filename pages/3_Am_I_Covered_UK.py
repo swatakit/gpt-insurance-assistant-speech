@@ -38,6 +38,12 @@ with st.container():
     # Display the title
     st.title('Policy QA Bot Assistant')
 
+    # set explanation 
+    with st.expander("Assistants Role"):
+        st.write("""
+        This assistant determines whether your home owners insurance claims should be submitted to a claim assessor.
+    """)
+
     # Audio recorder
     audio = audiorecorder("Speak to the Assistant", "Click Again When Done")
 

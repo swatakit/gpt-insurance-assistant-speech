@@ -2,7 +2,7 @@ import streamlit as st
 from audiorecorder import audiorecorder
 import os
 from openai import OpenAI
-from api.openai_amicovered_portuguese import *
+from api.openai_qa import *
 
 # Set your OpenAI API key from an environment variable
 api_key = os.environ["OPENAI_API_KEY"]
@@ -22,7 +22,7 @@ def stick_header():
                     z-index: 999;
                 }
                 .fixed-header {
-                   /* border-bottom: 1px solid black; */
+                    /* border-bottom: 1px solid black; */
                 }
             </style>
         """,
@@ -38,6 +38,12 @@ with st.container():
     # Display the title
     st.title('Policy QA Bot Assistant')
 
+    # set explanation 
+    with st.expander("Assistants Role"):
+        st.markdown("""
+        This assistant provides answers to questions about **Etiqa Singapore's Insurance products**.
+    """)
+
     # Audio recorder
     audio = audiorecorder("Speak to the Assistant", "Click Again When Done")
 
@@ -52,15 +58,15 @@ with st.container():
         )
 
 # Initialize chat history if not already present
-if "messages_port" not in st.session_state:
-    st.session_state.messages_port = []
+if "messages_qa" not in st.session_state:
+    st.session_state.messages_qa = []
 
 # Display welcome message
 with st.chat_message("assistant"):
     st.write("Hello, how can I help you today?")
 
 # Display previous chat messages
-for message in st.session_state.messages_port:
+for message in st.session_state.messages_qa:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
 
@@ -72,7 +78,7 @@ new_input = user_input or prompt
 
 if new_input:
     # Add user message to chat history and display it
-    st.session_state.messages_port.append({"role": "user", "content": new_input})
+    st.session_state.messages_qa.append({"role": "user", "content": new_input})
     with st.chat_message("user"):
         st.markdown(new_input)
 
@@ -83,7 +89,7 @@ if new_input:
             st.markdown(full_response)
 
             # Add assistant response to chat history
-            st.session_state.messages_port.append({"role": "assistant", "content": full_response})
+            st.session_state.messages_qa.append({"role": "assistant", "content": full_response})
 
         # Generating speech (if needed)
         with st.spinner("Generating speech..."):
